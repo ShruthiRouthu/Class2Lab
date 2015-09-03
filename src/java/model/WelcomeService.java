@@ -19,7 +19,7 @@ public class WelcomeService {
     
     public final String getSalutation()
     {
-       String  sal ;
+       String  sal= "" ;
        cal = new GregorianCalendar(); 
        int h = cal.get(Calendar.HOUR_OF_DAY);
        
@@ -36,7 +36,7 @@ public class WelcomeService {
     }
     
     public final String getMessage(String name){
-        return getSalutation() + " " + name + ", Welcome!";
+        return getSalutation() + " " + name + ", Welcome!" ;
     }
 
    

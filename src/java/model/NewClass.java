@@ -14,7 +14,7 @@ public class NewClass {
     public static void main(String[] args)
     {
         WelcomeService w = new WelcomeService();
-        System.out.println(w.getSalutation());
+        System.out.println(w.getMessage("sonu"));
     }
     
 }

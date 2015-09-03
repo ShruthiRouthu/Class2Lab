@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import model.WelcomeService;
  *
  * @author Professional
  */
-@WebServlet(name = "Greeter", urlPatterns = {"/greeter"})
+@WebServlet(name = "Greeter", urlPatterns = {"/Greeter"})
 public class Greeter extends HttpServlet {
 
     /**
@@ -34,12 +35,18 @@ public class Greeter extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        WelcomeService service = new WelcomeService();
+      //  WelcomeService service = new WelcomeService();
         
-        String name = request.getParameter("name");
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+        //String name = request.getParameter("name");
+        //String msg = service.getMessage(name);
+        //request.setAttribute("msg","Hi");
+        
+       // RequestDispatcher view = request.getRequestDispatcher("/Welcome.jsp");
+       // view.forward(request, response); 
+       
+        }
+    
+     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -51,7 +58,7 @@ public class Greeter extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       // processRequest(request, response);
     }
 
     /**
@@ -65,7 +72,22 @@ public class Greeter extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       // processRequest(request, response);
+        
+        response.setContentType("text/html;charset=UTF-8");
+        
+        WelcomeService service = new WelcomeService();
+        
+        String name = request.getParameter("name");
+        String msg = service.getMessage(name);
+        request.setAttribute("msg",msg);
+        
+        RequestDispatcher view = request.getRequestDispatcher("Result.jsp");
+        view.forward(request, response);
+        
+        
+        
+        
     }
 
     /**
@@ -77,5 +99,8 @@ public class Greeter extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+
+
 
 }
