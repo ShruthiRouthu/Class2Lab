@@ -14,7 +14,7 @@
     <body>
        
    
-        <p> ${msg} </p>
+        <p> ${message} </p>
             
            
     </body>

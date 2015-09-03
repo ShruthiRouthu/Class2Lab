@@ -19,8 +19,8 @@ import model.WelcomeService;
  *
  * @author Professional
  */
-@WebServlet(name = "Greeter", urlPatterns = {"/Greeter"})
-public class Greeter extends HttpServlet {
+@WebServlet(name = "greeter2", urlPatterns = {"/greeter2"})
+public class greeter2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +33,10 @@ public class Greeter extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-      //  WelcomeService service = new WelcomeService();
-        
-        //String name = request.getParameter("name");
-        //String msg = service.getMessage(name);
-        //request.setAttribute("msg","Hi");
-        
-       // RequestDispatcher view = request.getRequestDispatcher("/Welcome.jsp");
-       // view.forward(request, response); 
-       
-        }
-    
-     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+      
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -74,20 +64,17 @@ public class Greeter extends HttpServlet {
             throws ServletException, IOException {
        // processRequest(request, response);
         
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html");        
+        String name = request.getParameter("name");
         
         WelcomeService service = new WelcomeService();
-        
-        String name = request.getParameter("name");
+              
         String msg = service.getMessage(name);
-        request.setAttribute("msg",msg);
-        
+       
+        request.setAttribute("message",msg);
+       
         RequestDispatcher view = request.getRequestDispatcher("Result.jsp");
         view.forward(request, response);
-        
-        
-        
-        
     }
 
     /**
@@ -99,8 +86,5 @@ public class Greeter extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-
-
 
 }
