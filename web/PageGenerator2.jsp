@@ -27,7 +27,7 @@
         </style>
     </head>
     <body>
-        <h3>My Favourite fruits </h3>
+        <h3>My Favourite Fruits </h3>
         
         <table>
             <tr>
